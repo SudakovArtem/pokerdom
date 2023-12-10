@@ -1,0 +1,265 @@
+.gifts {
+  @include desktop {
+    padding-bottom: 5.3rem;
+  }
+
+  @include tablet {
+    padding-bottom: 6.5rem;
+  }
+
+  @include mobile {
+    padding-bottom: 5.3rem;
+  }
+}
+
+.gifts__title-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  background-color: $color-old-lace;
+  background-image: radial-gradient($color-old-lace, $color-gamboge);
+
+  @include desktop {
+    min-height: 16.6rem;
+    margin-bottom: 8rem;
+  }
+
+  @include tablet {
+    min-height: 6.4rem;
+    margin-bottom: 4rem;
+  }
+
+  @include mobile {
+    width: calc(100% + 6rem);
+    min-height: 3rem;
+    margin-bottom: 1.6rem;
+    margin-left: -3rem;
+  }
+
+  &::after,
+  &::before {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    content: "";
+
+    @include tablet-desktop {
+      width: 20rem;
+    }
+
+
+    @include mobile {
+      width: 10rem;
+    }
+  }
+
+  &::before {
+    left: 0;
+    background-image: linear-gradient(270deg, rgba(22, 25, 36, 0) 0%, rgb(22, 25, 36) 100%);
+  }
+
+  &::after {
+    right: 0;
+    background-image: linear-gradient(90deg, rgba(22, 25, 36, 0) 0%, rgb(22, 25, 36) 100%);
+  }
+}
+
+.gifts__title {
+  font-weight: 700;
+  line-height: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  color: $color-default-white;
+
+  @include desktop {
+    font-size: 12.8rem;
+  }
+
+  @include tablet {
+    font-size: 2.7rem;
+  }
+
+  @include mobile {
+    font-size: 1.2rem;
+  }
+
+  span {
+    position: relative;
+    z-index: 1;
+    padding-bottom: 0.7rem;
+  }
+
+  &::before {
+    position: absolute;
+    right: 0;
+    left: 0;
+    content: "";
+    background: linear-gradient(183deg, #ce586c -17.83%, #ff5672 11.63%, #ba354c 32.14%, #942336 51.42%);
+
+    @include tablet-desktop {
+      top: 0.4rem;
+      bottom: 0.4rem;
+    }
+
+    @include mobile {
+      top: 0.2rem;
+      bottom: 0.2rem;
+    }
+  }
+}
+
+.gifts__list {
+  display: grid;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: repeat(4, 1fr);
+
+  @include desktop {
+    grid-column-gap: 8rem;
+    grid-row-gap: 4rem;
+  }
+
+  @include tablet {
+    grid-gap: 2rem;
+  }
+
+  @include mobile {
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 2rem;
+    grid-row-gap: 1rem;
+  }
+}
+
+.gifts__item {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  flex-direction: column;
+  flex-shrink: 0;
+  border-radius: 2rem;
+  background: $color-black-russian;
+  box-shadow: 0 0.2rem 0.5rem 0 rgba($color-default-black, 0.25), 0 0.9rem 0.9rem 0 rgba($color-default-black, 0.21), 0 2.1rem 1.3rem 0 rgba($color-default-black, 0.13), 0 3.8rem 1.5rem 0 rgba($color-default-black, 0.04), 0 5.9rem 1.7rem 0 rgba($color-default-black, 0);
+  isolation: isolate;
+
+  @include desktop {
+    min-height: 22rem;
+    padding: 2.8rem;
+  }
+
+  @include tablet {
+    min-height: 11.6rem;
+    padding: 0.8rem;
+  }
+
+  @include mobile {
+    min-height: 13rem;
+    padding: 1.9rem 0.8rem 1.8rem;
+  }
+
+  &--game-1 {
+    .gifts__item-bg img {
+      @include mobile-tablet {
+        object-position: right;
+      }
+    }
+  }
+
+  &--game-2 {
+    .gifts__item-bg img {
+      @include mobile-tablet {
+        object-fit: unset;
+      }
+    }
+  }
+}
+
+.gifts__item-img {
+  @include desktop {
+    width: 15.4rem;
+    height: 12.8rem;
+    margin-bottom: 1.2rem;
+  }
+
+  @include tablet {
+    width: 12rem;
+    height: 7.5rem;
+    margin-bottom: -0.1rem;
+  }
+
+  @include mobile {
+    width: 13rem;
+    height: 7.7rem;
+    margin-bottom: 0;
+  }
+
+  picture {
+    display: contents;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: bottom;
+  }
+}
+
+.gifts__item-text {
+  font-weight: 500;
+  font-style: normal;
+  display: inline-flex;
+  margin: auto 0 0;
+  text-align: center;
+  color: $color-default-white;
+
+  @include desktop {
+    font-size: 1.8rem;
+  }
+
+  @include tablet-desktop {
+    line-height: 2.4rem;
+  }
+
+  @include mobile-tablet {
+    font-size: 1.2rem;
+  }
+
+  @include mobile {
+    line-height: normal;
+    flex-direction: column;
+  }
+}
+
+.gifts__item-bg {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  picture {
+    display: contents;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

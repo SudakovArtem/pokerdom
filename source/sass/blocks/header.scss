@@ -1,0 +1,131 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  @include desktop {
+    padding: 1.5rem 0;
+  }
+
+  @include tablet {
+    padding: 1.9rem 0;
+  }
+
+  @include mobile {
+    padding: 0.5rem 0;
+  }
+
+  &::after,
+  &::before {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &::before {
+    left: 0;
+    background-image: url("../img/content/header-left-bg.png");
+
+    @include desktop {
+      width: 52.6rem;
+      height: 31.9rem;
+    }
+
+    @include tablet {
+      width: 26.3rem;
+      height: 16rem;
+    }
+
+    @include mobile {
+      width: 12rem;
+      height: 7.2rem;
+    }
+  }
+
+  &::after {
+    right: 0;
+    background-image: url("../img/content/header-right-bg.png");
+
+    @include desktop {
+      width: 67.3rem;
+      height: 30.2rem;
+    }
+
+    @include tablet {
+      width: 28.6rem;
+      height: 13rem;
+    }
+
+    @include mobile {
+      width: 12rem;
+      height: 5.6rem;
+    }
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-default-white;
+
+    @include tablet-desktop {
+      width: 24rem;
+      padding-bottom: 1.9rem;
+    }
+
+    @include mobile {
+      width: 9.8rem;
+      padding-bottom: 0.8rem;
+    }
+
+    svg {
+      flex-shrink: 0;
+
+      @include tablet-desktop {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 0.5rem;
+      }
+
+      @include mobile {
+        width: 0.9rem;
+        height: 0.9rem;
+        margin-right: 0.4rem;
+      }
+    }
+
+    &::before {
+      position: absolute;
+      z-index: 1;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      content: "";
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      @include tablet-desktop {
+        height: 0.6rem;
+        background-image: url("../img/svg/line.svg");
+      }
+
+      @include mobile {
+        height: 0.2rem;
+        background-image: url("../img/svg/line-mob.svg");
+      }
+    }
+  }
+}

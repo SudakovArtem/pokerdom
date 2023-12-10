@@ -1,0 +1,30 @@
+mixin main()
+  section.main
+    .container
+      .main__content
+        .main__arrow
+          img(src="img/svg/arrow.svg", width="97" height="104" alt="arrow")
+        +picture("content", "art-1", "png", 1921, 968, "").art
+        .main__wheel
+          img(src="img/svg/wheel-shadow.svg", width="981", height="978", alt="wheel").wheel-shadow
+          .main__wheel-wrapper(data-wheel="element")
+            picture
+              source(media='(max-width: 767px)' srcset='img/svg/wheel-mob.svg')
+              img(src="img/svg/wheel.svg", width="689", height="689", alt="wheel").wheel-img
+          button.main__button(type="button", data-wheel="button") Крутить
+      .main__footer
+        img(src="img/svg/art-2.svg", width="787", height="340" alt="")
+      .main__prompt.prompt(data-prompt)
+        .prompt__accent
+          img(src="img/svg/ellipse.svg", width="181", height="115" alt="").ellipse
+          img(src="img/svg/gift.svg", width="76", height="75" alt="").gift
+          span.prompt__text Более
+          span.prompt__lead 140 000
+          span.prompt__text ПРИЗОВ
+        .prompt__content
+          .prompt__header
+            p.prompt__tag Призовой фонд
+            p.prompt__num 24 000 000
+              span.ruble ₽
+          .prompt__footer
+            span новогодний беспредел в самом разгаре!
