@@ -137,6 +137,7 @@ const initWheel = () => {
 
   button.addEventListener('click', (evt) => {
     evt.preventDefault();
+    button.disabled = true;
     const {id, rotation: giftRotation, img, bg, text} = getRandomGift();
     const rotationRemainder = rotation % 1080;
     const newRotation = giftRotation - rotationRemainder;
@@ -148,6 +149,9 @@ const initWheel = () => {
     giftImgElement.setAttribute('data-gift', id);
     element.addEventListener('transitionend', () => {
       modals.open('success');
+      setTimeout(() => {
+        button.disabled = false;
+      }, 600);
     }, {once: true});
   });
 };
